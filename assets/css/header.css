@@ -1,5 +1,6 @@
 body {
-    background: url(../images/background.jpeg);
+    /* background: url(../images/background.jpeg); */
+    background: linear-gradient(100deg, #c2e9fb, #a1c4fd, #d4a4ff, #d4a4ff);
     background-size: cover;
     position: relative;
     /* overflow-x: hidden; */

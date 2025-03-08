@@ -6,7 +6,8 @@
 }
 
 body {
-    background-image: url(../images/background.jpeg);
+    /* background-image: url(../images/background.jpeg); */
+    background: linear-gradient(70deg, #c2e9fb, #a1c4fd, #d4a4ff, #d4a4ff);
     background-position: center;
     max-height: 100vh;
     max-width: 100vw;

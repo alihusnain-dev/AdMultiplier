@@ -1,7 +1,11 @@
-.container .floating-content {
+.content {
+    position: relative;
+}
+
+.content .floating-content {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: -377px;
     display: flex;
     flex-direction: column;
     align-items: center;
