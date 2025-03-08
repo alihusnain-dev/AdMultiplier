@@ -13,7 +13,9 @@
 <body>
     <header>
         <div class="header">
-            <img src="../assets/images/logo.svg" alt="">
+            <a href="../dashboard/dashboard.html">
+                <img src="../assets/images/logo.svg" alt="">
+            </a>
             <div class="profile-section">
                 <div class="credits">
                     Credits Remaining: <span>25</span>
@@ -34,7 +36,8 @@
                         </div>
                         <hr class="profile-hr">
                         <div class="logout section">
-                            <a href="" class="link"><img src="../assets/images/logout.svg" class="logout-icon" alt="">
+                            <a href="../" class="link"><img src="../assets/images/logout.svg" class="logout-icon"
+                                    alt="">
                                 Logout</a>
                         </div>
                     </div>
@@ -121,7 +124,6 @@
                         </div>
                         <input type="file" id="fileInput" multiple>
                         <!-- <div id="fileList"></div> -->
-                        <!-- Yeah iss lia ha k aghr ap file ka name show krwana chahty ho  -->
                     </div>
                 </div>
                 <div class="submit-button">
@@ -137,65 +139,8 @@
             </div>
         </div>
     </main>
-    <script>
-        // Button Toggler Js 
-        const activeBtn = document.getElementById('active-btn');
-        const processBtn = document.getElementById('process-btn');
-        activeBtn.addEventListener('click', () => {
-            activeBtn.classList.add('hidden');
-            processBtn.classList.remove('hidden');
-        });
-        const dropzone = document.getElementById('dropzone');
-        const fileInput = document.getElementById('fileInput');
-        const fileList = document.getElementById('fileList');
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-            dropzone.addEventListener(eventName, preventDefaults, false);
-            document.body.addEventListener(eventName, preventDefaults, false);
-        });
-        ['dragenter', 'dragover'].forEach(eventName => {
-            dropzone.addEventListener(eventName, highlight, false);
-        });
-
-        ['dragleave', 'drop'].forEach(eventName => {
-            dropzone.addEventListener(eventName, unhighlight, false);
-        });
-        dropzone.addEventListener('drop', handleDrop, false);
-        dropzone.addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', handleFiles, false);
-        function preventDefaults(e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        function highlight() {
-            dropzone.classList.add('dragover');
-        }
-        function unhighlight() {
-            dropzone.classList.remove('dragover');
-        }
-        function handleDrop(e) {
-            const dt = e.dataTransfer;
-            const files = dt.files;
-            handleFiles(files);
-        }
-        function handleFiles(files) {
-            if (files instanceof Event) {
-                files = fileInput.files;
-            }
-            fileList.innerHTML = '';
-
-            Array.from(files).forEach(file => {
-                const fileElement = document.createElement('div');
-                fileElement.textContent = `${file.name} (${formatFileSize(file.size)})`;
-                fileList.appendChild(fileElement);
-            });
-        }
-        function formatFileSize(bytes) {
-            if (bytes < 1024) return bytes + ' bytes';
-            else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-            else return (bytes / 1048576).toFixed(1) + ' MB';
-        }
-    </script>
     <script src="../assets/js/profileMenu.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>
