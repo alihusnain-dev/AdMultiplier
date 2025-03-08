@@ -14,13 +14,27 @@ body {
 
 
 header {
+    max-width: 100vw;
+    background: white;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
     display: flex;
     font-family: 'Inter', sans-serif;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background: white;
     height: 100px;
+}
+
+@media (min-width: 1300px) {
+    .header {
+        max-width: 1300px;
+        width: 100%;
+        padding: 20px 0;
+    }
 }
 
 .logo img {
@@ -101,6 +115,7 @@ main {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .for-cen {
