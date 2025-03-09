@@ -239,6 +239,7 @@ title {
 }
 
 .error-message {
+    text-transform: capitalize;
     font-family: "Plus Jakarta Sans", sans-serif;
     position: absolute;
     top: 75%;
