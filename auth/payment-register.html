@@ -10,8 +10,8 @@
 <body>
     <div class="main-container">
         <div class="container">
-            <div class="logo">
-                <a href="/"><img src="../assets/images/logo.svg" alt="AdMultiplier"></a>
+            <div class="logo new-logo">
+                <a href="/" class="new-header"><img src="../assets/images/new-header.png" alt="AdMultiplier"></a>
             </div>
             <div class="heading">
                 <p class="title">
@@ -27,20 +27,24 @@
                         <div class="form-group">
                             <label class="label" for="name">Name:</label>
                             <input type="text" class="input" name="name" id="name" placeholder="Name" required>
+                            <span class="error-message" id="name-error"></span>
                         </div>
                         <div class="form-group">
                             <label class="label" for="email">Email:</label>
                             <input type="email" class="input" name="email" id="email" placeholder="Email" required>
+                            <span class="error-message" id="email-error"></span>
                         </div>
                         <div class="form-group group-password">
                             <label class="label" for="password">Password:</label>
                             <input type="password" class="input" name="password" id="password" placeholder="Password" required>
                             <img src="../assets/images/eye.svg" alt="Show" class="show-eye2" id="togglePassword">
+                            <span class="error-message" id="password-error"></span>
                         </div>
                         <div class="form-group group-password">
                             <label class="label" for="confirmpassword">Confirm Password:</label>
                             <input type="password" class="input" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" required>
                             <img src="../assets/images/eye.svg" alt="Show" class="show-eye2" id="toggleConfirmPassword">
+                            <span class="error-message" id="confirm-password-error"></span>
                         </div>
                     </div>
                     <button type="submit" class="button">
@@ -54,18 +58,130 @@
     <script>
         const togglePassword = document.getElementById('togglePassword');
         const passwordInput = document.getElementById('password');
+        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+        const confirmPasswordInput = document.getElementById('confirmpassword');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const confirmPasswordError = document.getElementById('confirm-password-error');
 
         togglePassword.addEventListener('click', () => {
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
         });
 
-        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
-        const confirmPasswordInput = document.getElementById('confirmpassword');
-
         toggleConfirmPassword.addEventListener('click', () => {
             const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             confirmPasswordInput.setAttribute('type', type);
+        });
+
+        // Name validation on blur
+        nameInput.addEventListener('blur', () => {
+            const nameValue = nameInput.value.trim();
+            const namePattern = /^[a-zA-Z\s-']+$/; // Letters, spaces, hyphens, apostrophes
+
+            if (!nameValue) {
+                nameError.textContent = 'Please enter your name';
+            } else if (nameValue.length < 2) {
+                nameError.textContent = 'Name must be at least 2 characters';
+            } else if (nameValue.length > 50) {
+                nameError.textContent = 'Name is too long (max 50 characters)';
+            } else if (!namePattern.test(nameValue)) {
+                nameError.textContent = 'Name can only contain letters, spaces, hyphens, or apostrophes';
+            } else {
+                nameError.textContent = '';
+            }
+        });
+
+        nameInput.addEventListener('input', () => {
+            nameError.textContent = '';
+        });
+
+        // Email validation on blur
+        emailInput.addEventListener('blur', () => {
+            const emailValue = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailValue) {
+                emailError.textContent = 'Please enter your email';
+            } else if (emailValue.length > 254) {
+                emailError.textContent = 'Email is too long (max 254 characters)';
+            } else if (!emailPattern.test(emailValue)) {
+                emailError.textContent = 'Please enter a valid email address';
+            } else {
+                // Simulate backend checks (these would typically come from a server)
+                if (emailValue === 'test@example.com') {
+                    emailError.textContent = 'This email is already registered';
+                } else if (emailValue === 'banned@example.com') {
+                    emailError.textContent = 'This email domain is not allowed';
+                } else if (emailValue.includes('..')) {
+                    emailError.textContent = 'Email cannot contain consecutive dots';
+                } else {
+                    emailError.textContent = '';
+                }
+            }
+        });
+
+        emailInput.addEventListener('input', () => {
+            emailError.textContent = '';
+        });
+
+        // Password validation on blur
+        passwordInput.addEventListener('blur', () => {
+            const passwordValue = passwordInput.value;
+            const hasUpperCase = /[A-Z]/.test(passwordValue);
+            const hasLowerCase = /[a-z]/.test(passwordValue);
+            const hasNumbers = /\d/.test(passwordValue);
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(passwordValue);
+
+            if (!passwordValue) {
+                passwordError.textContent = 'Please enter your password';
+            } else if (passwordValue.length < 6) {
+                passwordError.textContent = 'Password must be at least 6 characters';
+            } else if (passwordValue.length > 128) {
+                passwordError.textContent = 'Password is too long (max 128 characters)';
+            } else if (!(hasUpperCase || hasLowerCase) || !hasNumbers || !hasSpecial) {
+                passwordError.textContent = 'Password must include letters, numbers, and special characters';
+            } else if (passwordValue === emailInput.value) {
+                passwordError.textContent = 'Password cannot be the same as your email';
+            } else if (passwordValue === nameInput.value) {
+                passwordError.textContent = 'Password cannot be the same as your name';
+            } else {
+                passwordError.textContent = '';
+            }
+        });
+
+        passwordInput.addEventListener('input', () => {
+            passwordError.textContent = '';
+            if (confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value) {
+                confirmPasswordError.textContent = 'Passwords do not match';
+            } else {
+                confirmPasswordError.textContent = '';
+            }
+        });
+
+        // Confirm Password validation on blur
+        confirmPasswordInput.addEventListener('blur', () => {
+            const passwordValue = passwordInput.value;
+            const confirmPasswordValue = confirmPasswordInput.value;
+
+            if (!confirmPasswordValue) {
+                confirmPasswordError.textContent = 'Please confirm your password';
+            } else if (confirmPasswordValue !== passwordValue) {
+                confirmPasswordError.textContent = 'Passwords do not match';
+            } else if (confirmPasswordValue.length < 6) {
+                confirmPasswordError.textContent = 'Password must be at least 6 characters';
+            } else if (confirmPasswordValue.length > 128) {
+                confirmPasswordError.textContent = 'Password is too long (max 128 characters)';
+            } else {
+                confirmPasswordError.textContent = '';
+            }
+        });
+
+        confirmPasswordInput.addEventListener('input', () => {
+            confirmPasswordError.textContent = '';
         });
     </script>
 </body>

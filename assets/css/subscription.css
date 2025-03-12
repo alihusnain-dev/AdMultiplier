@@ -73,6 +73,10 @@
     text-transform: capitalize;
 }
 
+.header a img {
+    height: 40px;
+}
+
 .subscription-details .section .btn {
     font-family: "Montserrat", sans-serif;
     text-decoration: none;

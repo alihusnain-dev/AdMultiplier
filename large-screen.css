@@ -1,0 +1,252 @@
+/* large screen media query */
+.large {
+    display: none;
+}
+
+@media (min-width: 1400px) {
+    .logo img {
+        height: 55px;
+    }
+
+    .large {
+        display: block;
+    }
+
+    .header {
+        width: 100%;
+        padding: 1% 4%;
+        height: unset;
+    }
+
+    .header-main a {
+        font-size: 21px;
+    }
+
+    .highlight,
+    .banner-heading {
+        font-size: 46px;
+        white-space: nowrap;
+    }
+
+    .banner-content p {
+        white-space: nowrap;
+        margin-top: 2vw;
+        font-size: 22px;
+    }
+
+    .works {
+        height: unset;
+    }
+
+    .sub-works p,
+    .who-is-for-subtitle,
+    .who-is-for-description,
+    .why-switch-subtitle,
+    .affiliate-subtitle,
+    .contact-subtitle {
+        max-width: unset;
+        font-size: 22px;
+        /* width: 55vw; */
+        text-align: center;
+        /* margin-left: auto;
+        margin-right: auto; */
+    }
+
+    .header-btn,
+    .for-cen,
+    .access-btn,
+    .sign-up-btn {
+        font-size: 20px;
+        padding: 10px 25px;
+        height: unset;
+        width: unset;
+    }
+
+    .sign-up-btn {
+        width: 25%;
+    }
+
+
+
+    .bonus-description {
+        font-size: 24px;
+        white-space: nowrap;
+    }
+
+    .banner,
+    .works,
+    .bonus-section,
+    .contact-section,
+    .why-switch-section {
+        max-width: unset;
+        width: 92%;
+    }
+
+    .banner-place video,
+    .works-place,
+    .bonus-video-place video {
+        width: 55%;
+        max-width: unset;
+    }
+
+    .works-head h1,
+    .pricing-title,
+    .bonus-title,
+    .bonus-subtitle,
+    .who-is-for-title,
+    .why-switch-title,
+    .affiliate-title,
+    .contact-title {
+        font-size: 38px;
+
+    }
+
+    .features-section,
+    .who-is-for-content .cards-container,
+    .pricing-cards,
+    .cards-container {
+        max-width: unset;
+        padding: 1% 0;
+    }
+
+    .features-section {
+        width: 90vw;
+    }
+
+    /* Cards */
+    .box {
+        scale: 1.1;
+        margin: 3% auto;
+        max-width: unset;
+    }
+
+    .box-place img {
+        max-width: unset;
+        height: unset;
+        width: 70%;
+        object-fit: cover;
+
+    }
+
+    .affiliate-card,
+    .who-is-for-card,
+    .feature-card,
+    .pricing-card {
+        scale: 1.05;
+        margin: 0 1%;
+    }
+
+    .pricing-cards {
+        gap: 4%;
+    }
+
+    .feature-card {
+
+        /* width: 30%; */
+    }
+
+    .affiliate-title {
+        line-height: unset;
+        white-space: nowrap;
+    }
+
+    .why-switch-content .why-switch-card {
+        width: 25%;
+        scale: 1.05;
+        margin: .5%;
+    }
+
+    .contact-form {
+        scale: 1.1;
+        margin: 5% auto 2%;
+    }
+}
+
+@media screen and (min-width: 2200px) {
+    .logo img {
+        height: 70px;
+    }
+
+    .header-main a {
+        font-size: 25px;
+    }
+
+    .header-btn,
+    .for-cen,
+    .access-btn,
+    .sign-up-btn {
+        font-size: 22px;
+        padding: 12px 25px;
+    }
+
+    .highlight,
+    .banner-heading {
+        font-size: 55px;
+        line-height: 100%;
+    }
+
+    .banner-content p {
+        font-size: 25px;
+    }
+
+    .works-head h1,
+    .pricing-title,
+    .bonus-title,
+    .bonus-subtitle,
+    .who-is-for-title,
+    .why-switch-title,
+    .affiliate-title,
+    .contact-title {
+        font-size: 43px;
+    }
+
+    .sub-works p,
+    .who-is-for-subtitle,
+    .who-is-for-description,
+    .why-switch-subtitle,
+    .affiliate-subtitle,
+    .contact-subtitle {
+        font-size: 25px;
+        /* margin-left: auto;
+        margin-right: auto;
+        width: unset; */
+        white-space: nowrap;
+    }
+
+    .affiliate-card,
+    .who-is-for-card,
+    .feature-card,
+    .pricing-card {
+        scale: 1.2;
+        margin: 0 3%;
+    }
+
+    .bonus-description {
+        font-size: 28px;
+        max-width: unset;
+
+
+    }
+
+    /* .affiliate-subtitle {
+        max-width: unset;
+        max-width: 60vw;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    } */
+
+    .feature-card {
+        width: 22%;
+    }
+
+    .contact-form {
+        scale: 1.25;
+        margin: 6% auto 3.5%;
+    }
+
+    .pricing-cards {
+        gap: 7%;
+        padding: 2.5% 0;
+    }
+}

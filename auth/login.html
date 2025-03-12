@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/auth.css">
 </head>
+
 <body>
     <div class="main-container">
         <div class="container">
-            <div class="logo">
-                <a href="/"><img src="../assets/images/logo.svg" alt="AdMultiplier"></a>
+            <div class="logo new-logo">
+                <a href="/" class="new-header"><img src="../assets/images/new-header.png" alt="AdMultiplier"></a>
             </div>
             <div class="content">
                 <form class="form" action="../dashboard/dashboard.html">
@@ -19,12 +21,15 @@
                         <div class="form-group">
                             <label class="label" for="email">Email</label>
                             <input type="email" class="input" name="email" id="email" placeholder="Email" required>
+                            <span class="error-message" id="email-error"></span>
                         </div>
                         <div class="form-group group-password">
                             <label class="label" for="password">Password</label>
-                            <input type="password" class="input" name="password" id="password" placeholder="Password" required>
+                            <input type="password" class="input" name="password" id="password" placeholder="Password"
+                                required>
                             <img src="../assets/images/eye.svg" alt="Show" class="show-eye" id="togglePassword">
                             <a href="forgot.html" class="link-tag">Forgot Password?</a>
+                            <span class="error-message" id="password-error"></span>
                         </div>
                     </div>
                     <button type="submit" class="button">
@@ -36,15 +41,124 @@
     </div>
 
     <script>
-        // Toggle password visibility
+        // Define registered users for demo purposes
+        const registeredUsers = {
+            'test@example.com': 'Password123!',
+            'user1@example.com': 'SecurePass1@',
+            'admin@example.com': 'AdminPass#1'
+        };
+
+        // Get DOM elements
         const togglePassword = document.getElementById('togglePassword');
         const passwordInput = document.getElementById('password');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const form = document.querySelector('.form');
 
+        // Toggle password visibility
         togglePassword.addEventListener('click', () => {
-            // Toggle the input type between 'password' and 'text'
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
         });
+
+        // Email validation on blur
+        emailInput.addEventListener('blur', () => {
+            const emailValue = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailValue) {
+                emailError.textContent = 'Please enter your email';
+            } else if (emailValue.length > 254) {
+                emailError.textContent = 'Email is too long (max 254 characters)';
+            } else if (!emailPattern.test(emailValue)) {
+                emailError.textContent = 'Please enter a valid email address';
+            } else {
+                emailError.textContent = '';
+            }
+        });
+
+        // Clear email error on input
+        emailInput.addEventListener('input', () => {
+            emailError.textContent = '';
+        });
+
+        // Password validation on blur
+        passwordInput.addEventListener('blur', () => {
+            const passwordValue = passwordInput.value;
+            const hasUpperCase = /[A-Z]/.test(passwordValue);
+            const hasLowerCase = /[a-z]/.test(passwordValue);
+            const hasNumbers = /\d/.test(passwordValue);
+
+            if (!passwordValue) {
+                passwordError.textContent = 'Please enter your password';
+            } else if (passwordValue.length < 6) {
+                passwordError.textContent = 'Password must be at least 6 characters';
+            } else if (passwordValue.length > 128) {
+                passwordError.textContent = 'Password is too long (max 128 characters)';
+            }
+            else {
+                passwordError.textContent = '';
+            }
+        });
+
+        // Clear password error on input
+        passwordInput.addEventListener('input', () => {
+            passwordError.textContent = '';
+        });
+
+        // Form submission handling
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const emailValue = emailInput.value.trim();
+            const passwordValue = passwordInput.value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Final email validation
+            if (!emailValue) {
+                emailError.textContent = 'Please enter your email';
+                return;
+            }
+            if (emailValue.length > 254) {
+                emailError.textContent = 'Email is too long (max 254 characters)';
+                return;
+            }
+            if (!emailPattern.test(emailValue)) {
+                emailError.textContent = 'Please enter a valid email address';
+                return;
+            }
+
+            // Final password validation
+            if (!passwordValue) {
+                passwordError.textContent = 'Please enter your password';
+                return;
+            }
+            if (passwordValue.length < 6) {
+                passwordError.textContent = 'Password must be at least 6 characters';
+                return;
+            }
+            if (passwordValue.length > 128) {
+                passwordError.textContent = 'Password is too long (max 128 characters)';
+                return;
+            }
+
+            // Check credentials and redirect if valid
+            if (registeredUsers.hasOwnProperty(emailValue)) {
+                if (registeredUsers[emailValue] === passwordValue) {
+                    // Success case
+                    console.log('Login successful');
+                    window.location.href = '../dashboard/dashboard.html';
+                } else {
+                    passwordError.textContent = 'Incorrect password';
+                }
+            } else {
+                // For unregistered emails, just proceed (removing "Invalid email or password")
+                console.log('Login attempt with unregistered email');
+                window.location.href = '../dashboard/dashboard.html';
+            }
+        });
     </script>
 </body>
+
 </html>

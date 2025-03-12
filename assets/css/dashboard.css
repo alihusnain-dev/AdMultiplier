@@ -13,6 +13,15 @@
     height: 580px;
 }
 
+.file-checkbox {
+    cursor: pointer;
+}
+
+.logo img,
+.header a img {
+    height: 40px;
+}
+
 .floating-content .float-layout {
     width: 337px;
     padding: 14px 24px 24px 24px;
@@ -133,7 +142,7 @@
 .upload-container .title,
 .video-container,
 title {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .upload-file:hover {
@@ -149,7 +158,7 @@ title {
     text-align: center;
     color: #5d5d5d;
     /* font-weight: 300; */
-    margin-top: 10px;
+    margin-top: 16px;
 }
 
 .upload-file .upload-label .bold {
@@ -178,6 +187,85 @@ title {
     text-align: left;
 }
 
+.upload-file {
+    position: relative;
+    padding: 20px;
+    /* Adjust as per your design */
+    border: 2px dashed #ccc;
+    /* Your existing border style */
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCFCFC;
+}
+
+.upload-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /* Hide the input completely */
+    cursor: pointer;
+}
+
+.upload-file.dragover {
+    border: 2px dashed #007bff;
+    /* Highlight color */
+    background-color: rgba(0, 123, 255, 0.1);
+    /* Optional: light background */
+}
+
+.upload-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-label {
+    margin-top: 10px;
+    /* Space between icon and text */
+}
+
+.file-count {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1em;
+    color: #666;
+    /* Adjust to match your theme */
+    text-transform: capitalize;
+}
+
+.error-message {
+    text-transform: capitalize;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    position: absolute;
+    top: 75%;
+    /* Position below file count */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: #ff0000;
+    /* Red for error */
+    min-width: 300px;
+    letter-spacing: .1px;
+}
+
+.hidden {
+    display: none;
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
 /* Button Css  */
 .content .submit-button {
@@ -196,6 +284,12 @@ title {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.submit-btn #variationCount {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .submit-btn:hover {
@@ -478,4 +572,9 @@ title {
     margin-top: 5px;
     color: #000000B2;
     font-size: 12px;
+}
+
+/* Style for completed files */
+.download-files .file.completed .file-name {
+    color: #0066FF;
 }

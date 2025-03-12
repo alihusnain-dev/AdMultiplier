@@ -124,6 +124,8 @@ body::after {
 
 .profile-menu .logout .link .logout-icon {
     margin-right: 7px;
+    height: 16px;
+    width: 16px;
 }
 
 

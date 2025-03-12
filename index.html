@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
         rel="stylesheet">
+    <link rel="icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="large-screen.css">
 </head>
 
 <body>
@@ -19,15 +21,19 @@
         <div class="header">
             <div class="logo">
                 <a href="/">
-                    <img src="assets/images/logo.svg" alt="Logo">
+                    <img src="assets/images/new-header.png" alt="Logo">
                 </a>
+                <button class="mobile-menu-btn">
+                    <img src="assets/images/menu-icon.svg" alt="Menu">
+                </button>
             </div>
             <div class="header-main">
                 <a href="#home">Home</a>
-                <a href="#why-us">Feature</a>
+                <a href="#feature">Feature</a>
                 <a href="#work">How It Works</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#contact">Contact Us</a>
+                <span class="separator"></span>
                 <a onclick="window.location.href='/auth/login.html'">Login</a>
                 <a href="#pricing"><button class="header-btn">Get Started <img src="assets/images/arrow.svg"
                             alt=""></button></a>
@@ -38,20 +44,26 @@
         <section class="banner">
             <div class="banner-content">
                 <h1 class="banner-heading">🚀 Creative Testing is DEAD! Scale <span class="highlight high-under">Ad
-                        Production<img src="assets/images/line.svg" alt="Underline" class="underline-img"></span> Like
+                        Production<img src="assets/images/line.svg" alt="Underline" class="underline-img"></span> <br
+                        class="large"> Like
                     Never Before</h1>
-                <p>With AdMultiplier.io, generate 100+ Ad variations in minutes no manual edits, no waiting. Just fast,
+                <p>With AdMultiplier.io, generate 100+ Ad variations in minutes no manual edits, no waiting. Just
+                    fast,<br class="large">
                     automated ad production at scale.</p>
                 <a href="#pricing"><button class="header-btn for-cen">Get Started <img src="assets/images/arrow.svg"
                             alt=""></button></a>
             </div>
-            <div class="placeholder">
-                <img src="assets//images/banner-placeholder.svg" alt="">
-                <div class="play-circle">
-                    <img src="assets/images/play-circle.svg" alt="Play Circle" class="play-icon">
-                </div>
+            <div class="placeholder banner-place">
+                <video id="video-player" class="video-background" controls
+                    poster="https://vlsmlsaker.s3.amazonaws.com/videos/home-video/intro-poster.png" playsinline
+                    webkit-playsinline>
+                    <source src="assets/videos/dummy.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
+
         </section>
+
         <div class="border"></div>
 
 
@@ -61,10 +73,10 @@
                     <h1><img src="assets/images/desktop.svg" alt="">Instant Ad Generation</h1>
                 </div>
                 <div class="sub-text">
-                    <p>100+ High-Quality Ad Variations in Minutes – Fully Automated</p>
+                    <p>100+ High-Quality Ad Variations in Minutes – Fully <br class="large" />Automated</p>
                 </div>
                 <div class="box-place">
-                    <img src="assets/images/gray-placeholder.svg" alt="">
+                    <img src="./assets/videos/dummy.gif" alt="">
                 </div>
             </div>
             <div class="box">
@@ -72,10 +84,10 @@
                     <h1><img src="assets//images/caution.svg" alt="">Outdated Testing Methods</h1>
                 </div>
                 <div class="sub-text">
-                    <p>Still manually "testing creatives"? Face the reality.</p>
+                    <p>Still manually "testing creatives"? Face the <br class="large" />reality.</p>
                 </div>
                 <div class="box-place">
-                    <img src="assets/images/gray-placeholder.svg" alt="">
+                    <img src="./assets/videos/dummy.gif" alt="">
                 </div>
             </div>
             <div class="box">
@@ -83,10 +95,10 @@
                     <h1><img src="assets//images/trophy.svg" alt="">Scale Like the Best</h1>
                 </div>
                 <div class="sub-text">
-                    <p>Top advertisers don't A/B test—they produce at scale.</p>
+                    <p>Top advertisers don't A/B test—they produce <br class="large" />at scale.</p>
                 </div>
                 <div class="box-place">
-                    <img src="assets/images/gray-placeholder.svg" alt="">
+                    <img src="./assets/videos/dummy.gif" alt="">
                 </div>
             </div>
             <div class="box">
@@ -94,10 +106,10 @@
                     <h1><img src="assets//images/rocket.svg" alt="">Infinite Growth</h1>
                 </div>
                 <div class="sub-text">
-                    <p>No waiting. No manual edits. Just endless scaling.</p>
+                    <p>No waiting. No manual edits. Just endless <br class="large" />scaling.</p>
                 </div>
                 <div class="box-place">
-                    <img src="assets/images/gray-placeholder.svg" alt="">
+                    <img src="./assets/videos/dummy.gif" alt="">
                 </div>
             </div>
         </section>
@@ -111,8 +123,15 @@
                     <p> AdMultiplier.io generates 100+ ad variations in minutes:</p>
                 </div>
                 <div class="works-place">
-                    <img src="assets/images/works-placehoder.svg" alt="">
+                    <video id="video-player" class="video-background" width="100%" height="auto" controls
+                        poster="https://vlsmlsaker.s3.amazonaws.com/videos/home-video/intro-poster.png" playsinline
+                        webkit-playsinline>
+                        <source src="assets/videos/dummy.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
+
+
                 <p>It’s really that simple—just upload, generate, and scale!</p>
             </div>
         </section>
@@ -135,7 +154,7 @@
                 <div class="pricing-card popular">
                     <h3>Pro Plan</h3>
                     <p class="price">$497 <span>/month</span></p>
-                    <p class="description">0.99¢ Per Variation</p>
+                    <p class="description">$0.99 Per Variation </p>
                     <ul>
                         <li><img src="assets/images/price-check.svg" alt="">500 Ad Variations/Month – Test & Scale
                             faster</li>
@@ -147,9 +166,9 @@
                         Started <img src="assets/images/lg-arrow.svg" alt=""></button>
                 </div>
                 <div class="pricing-card pricing-card-color">
-                    <h3>Premium plan</h3>
+                    <h3>Premium Plan</h3>
                     <p class="price">$997 <span>/month</span></p>
-                    <p class="description">0.99¢ Per Variation</p>
+                    <p class="description">$0.66 Per Variation</p>
                     <ul>
                         <li class="for-wid"><img src="assets/images/price-check.svg" alt="">1000 Ad Variations/Month –
                             Test & Scale faster</li>
@@ -170,10 +189,16 @@
                 <h3 class="bonus-subtitle">with <span class="highlight2">QuickCampaigns <span class=" high-under">For
                             Free<img src="assets/images/free-line.svg" alt="Underline"
                                 class="underline-img"></span></span></h3>
-                <p class="bonus-description">Tired of manually setting up ad campaigns? Transform your advertising
+                <p class="bonus-description">Tired of manually setting up ad campaigns? Transform your <br
+                        class="large" /> advertising
                     workflow with our powerful one-click solution.</p>
-                <div class="video-placeholder">
-                    <img src="assets/images/works-placehoder.svg" alt="">
+                <div class="video-placeholder bonus-video-place">
+                    <video id="video-player" class="video-background" controls
+                        poster="https://vlsmlsaker.s3.amazonaws.com/videos/home-video/intro-poster.png" playsinline
+                        webkit-playsinline>
+                        <source src="assets/videos/dummy.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
                 <div class="features">
                     <div class="feature-card">
@@ -233,7 +258,8 @@
                 <h2 class="why-switch-title">Why Advertisers Are <span class="highlight2">Switching</span> to
                     AdMultiplier.io</h2>
                 <p class="why-switch-subtitle">Join the advertisers who are scaling their creative production
-                    exponentially and seeing better results.</p>
+                    <br class="large"> exponentially and seeing better results.
+                </p>
                 <div class="cards-container">
                     <div class="why-switch-card">
                         <div class="card-icon"><img src="assets/images/pen.svg" alt=""></div>
@@ -261,7 +287,9 @@
                         <p>Generate creatives & launch them instantly to maximize your ROI.</p>
                     </div>
                 </div>
-                <button class="access-btn">Get Instant Access<img src="assets/images/arrow.svg" alt=""></button>
+                <a href="#pricing">
+                    <button class="access-btn">Get Instant Access<img src="assets/images/arrow.svg" alt=""></button>
+                </a>
             </div>
         </section>
         <div class="border" style="margin-top: 40px;margin-bottom: 30px;"></div>
@@ -272,8 +300,9 @@
                     <br>Earn 30% Recurring Commissions!
                 </h2>
                 <p class="affiliate-subtitle">Join the AdMultiplier.io Affiliate Program and start earning 30% recurring
-                    commissions for every customer you refer. Build a passive income stream by helping businesses,
-                    agencies, and media buyers scale their ad creative production without manual editing!</p>
+                    commissions for every <br class="large">customer you refer. Build a passive income stream by helping
+                    businesses, agencies, and media buyers <br class="large">scale their ad creative production without
+                    manual editing!</p>
                 <div class="cards-container">
                     <div class="affiliate-card">
                         <span class="card-number">1</span>
@@ -315,32 +344,37 @@
                         <div class="form-group">
                             <label for="first-name" class="form-label">First Name</label>
                             <input type="text" id="first-name" placeholder="First name" class="form-input" required>
+                            <span class="error-message" id="first-name-error"></span>
                         </div>
                         <div class="form-group">
                             <label for="last-name" class="form-label">Last Name</label>
                             <input type="text" id="last-name" placeholder="Last name" class="form-input" required>
+                            <span class="error-message" id="last-name-error"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" id="email" class="form-input" placeholder="you@company.com" required>
+                        <span class="error-message" id="email-error"></span>
                     </div>
                     <div class="form-group">
                         <label for="message" class="form-label">Message</label>
                         <textarea id="message" placeholder="Message" class="form-textarea"></textarea>
+                        <span class="error-message" id="message-error"></span>
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
         </section>
-
         <footer class="footer-section">
             <div class="footer-content">
-                <h2 class="footer-tagline">The Future of Advertising Belongs to Those Who Scale Creatives the Fastest.
+                <h2 class="footer-tagline">The Future of Advertising Belongs to Those Who Scale Creatives the <br
+                        class="large">
+                    Fastest.
                     Are You In?</h2>
                 <div class="footer-main">
                     <div class="footer-logo">
-                        <a href="/">AdMultiplier.io</a>
+                        <a href="/"><img src="assets/images/Logo SVG black.svg" alt=""></a>
                     </div>
                     <div class="footer-links">
                         <div class="footer-column">
@@ -363,6 +397,7 @@
         </footer>
     </main>
     <script src="assets/scripts/main-script.js"></script>
+    <script src="assets/scripts/toggle.js"></script>
 </body>
 
 </html>

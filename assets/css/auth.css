@@ -57,7 +57,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 26px;
 }
 
 
@@ -67,7 +67,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    /* gap: 24px; */
 }
 
 .form .input-groups .form-group {
@@ -93,6 +93,7 @@ body {
     position: absolute;
     bottom: 34px;
     right: 10px;
+    top: 35px;
     cursor: pointer;
 }
 
@@ -100,6 +101,7 @@ body {
     position: absolute;
     bottom: 8px;
     right: 10px;
+    top: 35px;
     cursor: pointer;
 }
 
@@ -167,6 +169,10 @@ body {
 }
 
 
+.new-logo .new-header img {
+    height: 40px;
+}
+
 /* Payment Register Form CSS  */
 .container .heading {
     width: 100%;
@@ -182,4 +188,13 @@ body {
     font-weight: 600;
     font-size: 20px;
     line-height: 24.2px;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+    min-height: 20px;
+    text-transform: capitalize;
 }

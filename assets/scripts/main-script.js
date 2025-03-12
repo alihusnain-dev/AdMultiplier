@@ -55,3 +55,85 @@ function closeSuccessMessage() {
     localStorage.removeItem('formSubmitted'); // Clear the flag
     console.log('Cleared formSubmitted flag from localStorage');
 }
+
+
+const firstNameInput = document.getElementById('first-name');
+const lastNameInput = document.getElementById('last-name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+const firstNameError = document.getElementById('first-name-error');
+const lastNameError = document.getElementById('last-name-error');
+const emailError = document.getElementById('email-error');
+const messageError = document.getElementById('message-error');
+
+// First Name validation on blur
+firstNameInput.addEventListener('blur', () => {
+    const firstNameValue = firstNameInput.value.trim();
+    if (!firstNameValue) {
+        firstNameError.textContent = 'Please enter your first name';
+    } else {
+        firstNameError.textContent = '';
+    }
+});
+
+firstNameInput.addEventListener('input', () => {
+    firstNameError.textContent = '';
+});
+
+// Last Name validation on blur
+lastNameInput.addEventListener('blur', () => {
+    const lastNameValue = lastNameInput.value.trim();
+    if (!lastNameValue) {
+        lastNameError.textContent = 'Please enter your last name';
+    } else {
+        lastNameError.textContent = '';
+    }
+});
+
+lastNameInput.addEventListener('input', () => {
+    lastNameError.textContent = '';
+});
+
+// Email validation on blur
+emailInput.addEventListener('blur', () => {
+    const emailValue = emailInput.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailValue) {
+        emailError.textContent = 'Please enter your email';
+    } else if (!emailPattern.test(emailValue)) {
+        emailError.textContent = 'Please enter a valid email address';
+    } else {
+        emailError.textContent = '';
+    }
+});
+
+emailInput.addEventListener('input', () => {
+    emailError.textContent = '';
+});
+
+// Message validation on blur
+messageInput.addEventListener('blur', () => {
+    const messageValue = messageInput.value.trim();
+    if (!messageValue) {
+        messageError.textContent = 'Please enter your message';
+    } else {
+        messageError.textContent = '';
+    }
+});
+
+messageInput.addEventListener('input', () => {
+    messageError.textContent = '';
+});
+
+// Existing close success message function (assuming it exists elsewhere)
+function closeSuccessMessage() {
+    document.getElementById('success-message').style.display = 'none';
+}
+
+
+function playVideo() {
+    var video = document.getElementById('video-player');
+    video.play();  // Start playing the video
+    document.querySelector('.play-circle').style.display = 'none'; // Hide the play button after click
+}

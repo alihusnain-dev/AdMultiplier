@@ -41,6 +41,10 @@ header {
     height: 40px;
 }
 
+.logo .mobile-menu-btn {
+    display: none;
+}
+
 .header-main {
     display: flex;
     align-items: center;
@@ -53,6 +57,10 @@ header {
     font-size: 18px;
     line-height: 22px;
     font-weight: 500;
+}
+
+a {
+    cursor: pointer;
 }
 
 .header-btn {
@@ -76,6 +84,12 @@ header {
     text-align: center;
     padding: 50px 10%;
     margin-top: 97px;
+}
+
+.header-main .separator {
+    width: 1px;
+    height: 24px;
+    background-color: #CCCCCC;
 }
 
 .sub-main {
@@ -202,6 +216,7 @@ p {
     gap: 35px;
     margin-top: 20px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .plan {
@@ -379,4 +394,170 @@ ul li::marker {
     width: 16px;
     height: 16px;
     vertical-align: middle;
+}
+
+
+@media (max-width: 1300px) {
+
+    header {
+        justify-content: space-evenly;
+        padding: 33px 40px;
+        width: 100%;
+    }
+
+    header .logo {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        background: #fff;
+        border-radius: 4px;
+    }
+
+    .header-main {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        gap: 15px !important;
+    }
+
+    .header-main.active {
+        right: 0;
+    }
+
+    .header-main a {
+        padding: 15px 0;
+        width: 100%;
+        font-size: 16px;
+        border-bottom: 1px solid #eee;
+        display: block !important;
+    }
+
+    .header-main .separator {
+        display: none;
+    }
+
+}
+
+@media (max-width:1110px) {
+    .pricing {
+        flex-direction: column;
+        /* Stack the items vertically */
+        text-align: center;
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    header {
+        padding: 33px 16px;
+        width: 100%;
+    }
+
+    header .logo {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        background: #fff;
+        border-radius: 4px;
+    }
+
+    .header-main {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        gap: 15px !important;
+    }
+
+    .header-main.active {
+        right: 0;
+    }
+
+    .header-main a {
+        padding: 15px 0;
+        width: 100%;
+        font-size: 16px;
+        border-bottom: 1px solid #eee;
+        display: block !important;
+    }
+
+    .header-main .separator {
+        display: none;
+    }
+
+    .main-container {
+        padding: 50px 5%;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+
+    .main-container {
+        padding: 50px 0;
+        width: 95%;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width:500px) {
+
+
+    .logo img {
+        height: 40px;
+    }
+
+    .sub-main {
+        padding: 20px 15px;
+    }
+
+    header {
+        height: 85px;
+    }
 }

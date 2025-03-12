@@ -12,10 +12,9 @@
 <body>
     <div class="main-container">
         <div class="container">
-            <div class="logo">
+            <div class="logo new-logo">
                 <a href="login.html" class="back-icon"><img src="../assets/images/back.svg" alt="Back"></a>
-                <a href="/"><img src="../assets/images/logo.svg" alt="AdMultiplier"></a>
-
+                <a href="/" class="new-header"><img src="../assets/images/new-header.png" alt="AdMultiplier"></a>
             </div>
             <div class="content">
                 <form class="form" action="reset-send.html">
@@ -23,15 +22,92 @@
                         <div class="form-group">
                             <label class="label" for="email">Email</label>
                             <input type="email" class="input" name="email" id="email" placeholder="Email" required>
+                            <span class="error-message" id="email-error"></span>
                         </div>
                     </div>
-                    <button type="submit" class="button" >
+                    <button type="submit" class="button">
                         Reset Password
                     </button>
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        // Define registered users for demo purposes
+        const registeredUsers = {
+            'test@example.com': true,
+            'user1@example.com': true,
+            'admin@example.com': true
+        };
+
+        // Get DOM elements
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('email-error');
+        const form = document.querySelector('.form');
+
+        // Email validation on blur
+        emailInput.addEventListener('blur', () => {
+            const emailValue = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailValue) {
+                emailError.textContent = 'Please enter your email';
+            } else if (emailValue.length > 254) {
+                emailError.textContent = 'Email is too long (max 254 characters)';
+            } else if (!emailPattern.test(emailValue)) {
+                emailError.textContent = 'Please enter a valid email address';
+            } else if (emailValue.includes('..')) {
+                emailError.textContent = 'Email cannot contain consecutive dots';
+            } else {
+                emailError.textContent = '';
+            }
+        });
+
+        // Clear email error on input
+        emailInput.addEventListener('input', () => {
+            emailError.textContent = '';
+        });
+
+        // Form submission handling
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const emailValue = emailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Final validation
+            if (!emailValue) {
+                emailError.textContent = 'Please enter your email';
+                return;
+            }
+            if (emailValue.length > 254) {
+                emailError.textContent = 'Email is too long (max 254 characters)';
+                return;
+            }
+            if (!emailPattern.test(emailValue)) {
+                emailError.textContent = 'Please enter a valid email address';
+                return;
+            }
+            if (emailValue.includes('..')) {
+                emailError.textContent = 'Email cannot contain consecutive dots';
+                return;
+            }
+
+            // Simulate server-side checks
+            if (emailValue === 'banned@example.com') {
+                emailError.textContent = 'This account is banned';
+            } else if (emailValue === 'locked@example.com') {
+                emailError.textContent = 'Account is locked, contact support';
+            } else if (emailValue === 'recentreset@example.com') {
+                emailError.textContent = 'Reset link already sent recently, check your email';
+            } else {
+                // Success case for all valid emails
+                console.log('Password reset request successful');
+                window.location.href = 'reset-send.html';
+            }
+        });
+    </script>
 </body>
 
 </html>
